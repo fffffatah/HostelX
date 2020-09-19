@@ -52,7 +52,7 @@ namespace DataAccessLib
         public bool UpdatePayment(Payment payment)
         {
             dbConnection = new DatabaseConnection();
-            dbConnection.CreateQuery("UPDATE Payments SET Due='" + payment.Due + "', Paid='" + payment.Paid + "', Balance=" + payment.Balance + ", PaymentDate='" + payment.PaymentDate + "'");
+            dbConnection.CreateQuery("UPDATE Payments SET Due='" + payment.Due + "', Paid='" + payment.Paid + "', Balance=" + payment.Balance + ", PaymentDate='" + payment.PaymentDate + "' WHERE PaymentId"+payment.PaymentId);
             if ((dbConnection.DoNoQuery()) < 1)
             {
                 dbConnection.Dispose();

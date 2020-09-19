@@ -15,7 +15,7 @@ namespace DataAccessLib
         public bool CreateFood(Food food)
         {
             dbConnection = new DatabaseConnection();
-            dbConnection.CreateQuery("INSERT INTO Foods(FOODITEM, QUANTITY, ADMINID) VALUES ('"+food.FoodItem+"',"+food.FoodQuantity+","+food.AdminId+")");
+            dbConnection.CreateQuery("INSERT INTO Foods(FOODITEM, FOODQUANTITY, ADMINID) VALUES ('"+food.FoodItem+"',"+food.FoodQuantity+","+food.AdminId+")");
             if ((dbConnection.DoNoQuery()) < 1)
             {
                 dbConnection.Dispose();
@@ -50,7 +50,7 @@ namespace DataAccessLib
         public bool UpdateFood(Food food)
         {
             dbConnection = new DatabaseConnection();
-            dbConnection.CreateQuery("UPDATE Foods SET FoodItem='"+food.FoodItem+"',FoodQuantity="+food.FoodQuantity);
+            dbConnection.CreateQuery("UPDATE Foods SET FoodItem='" + food.FoodItem + "',FoodQuantity=" + food.FoodQuantity + "WHERE FoodId=" + food.FoodId);
             if ((dbConnection.DoNoQuery()) < 1)
             {
                 dbConnection.Dispose();
@@ -80,7 +80,7 @@ namespace DataAccessLib
         public bool DeleteFood(string foodId)
         {
             dbConnection = new DatabaseConnection();
-            dbConnection.CreateQuery("DELETE * FROM Foods WHERE FoodId=" + foodId);
+            dbConnection.CreateQuery("DELETE FROM Foods WHERE FoodId=" + foodId);
             if ((dbConnection.DoNoQuery()) < 1)
             {
                 dbConnection.Dispose();

@@ -12,6 +12,7 @@ namespace DataAccessLib
         public string Due { get; set; }
         public string Paid { get; set; }
         public string Balance { get; set; }
+        public string PaymentDueDate { get; set; }
         public string PaymentDate { get; set; }
         public string TenantId { get; set; }
     }

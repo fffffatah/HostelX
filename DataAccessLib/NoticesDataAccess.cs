@@ -65,7 +65,7 @@ namespace DataAccessLib
         public bool DeleteNotice(string noticeId)
         {
             dbConnection = new DatabaseConnection();
-            dbConnection.CreateQuery("DELETE * FROM Notices WHERE NoticeId="+noticeId);
+            dbConnection.CreateQuery("DELETE FROM Notices WHERE NoticeId="+noticeId);
             if ((dbConnection.DoNoQuery()) < 1)
             {
                 dbConnection.Dispose();

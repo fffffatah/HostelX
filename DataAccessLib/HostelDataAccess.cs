@@ -72,7 +72,7 @@ namespace DataAccessLib
         public bool UpdateHostel(Hostel hostel)
         {
             dbConnection = new DatabaseConnection();
-            dbConnection.CreateQuery("UPDATE Hostels SET HostelName='" + hostel.HostelName + "', HostelAddress='" + hostel.HostelAddress + "', HostelType='" + hostel.HostelType + "', HostelCapacity='" + hostel.HostelCapacity + "' WHERE AdminId=" + hostel.AdminId);
+            dbConnection.CreateQuery("UPDATE Hostels SET HostelName='" + hostel.HostelName + "', HostelAddress='" + hostel.HostelAddress + "', HostelType='" + hostel.HostelType + "', HostelCapacity='" + hostel.HostelCapacity + "' WHERE HostelId=" + hostel.HostelId);
             if ((dbConnection.DoNoQuery()) < 1)
             {
                 dbConnection.Dispose();
@@ -87,7 +87,7 @@ namespace DataAccessLib
         public bool DeleteHostel(string hostelId)
         {
             dbConnection = new DatabaseConnection();
-            dbConnection.CreateQuery("DELETE * FROM Hostels WHERE HostelId="+hostelId);
+            dbConnection.CreateQuery("DELETE FROM Hostels WHERE HostelId="+hostelId);
             if ((dbConnection.DoNoQuery()) < 1)
             {
                 dbConnection.Dispose();

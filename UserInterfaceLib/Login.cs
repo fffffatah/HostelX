@@ -250,7 +250,7 @@ namespace UserInterfaceLib
                 AdminDataAccess adminDataAccess = new AdminDataAccess();
                 if (adminDataAccess.CreateAdmin(admin))
                 {
-                    new MailSender().Send("info@hostlx.com", "HostelX", signupEmailTextBox.Text, signupFnameTextBox.Text, "Admin Account Created", "Your HostelX Admin Account has been Created Successfully!", "<strong>Your HostelX Admin Account has been Created Successfully!</strong>");
+                    new MailSender().Send("hostelx.x@yandex.com", "HostelX", signupEmailTextBox.Text, signupFnameTextBox.Text, "Admin Account Created", "Your HostelX Admin Account has been Created Successfully!", "<strong>Your HostelX Admin Account has been Created Successfully!</strong>");
                     MessageBox.Show("Account Creation Successful!\nPlease Log In.", "Successful");
                 }
                 else
@@ -379,7 +379,7 @@ namespace UserInterfaceLib
             if (new AdminDataAccess().UpdatePassword(adminLoginPhoneTextBox.Text, adminLoginPassTextBox.Text))
             {
                 Admin admin = new AdminDataAccess().GetAdmin(adminLoginPhoneTextBox.Text, adminLoginPassTextBox.Text);
-                new MailSender().Send("info@hostelx.com", "HostelX", admin.AdminEmail, admin.AdminFirstName, "HostelX Settings Changed", "Your HostelX Admin Password has been Changed Successfully!", "<strong>Your HostelX Admin Password has been Changed Successfully!</strong>");
+                new MailSender().Send("hostelx.x@yandex.com", "HostelX", admin.AdminEmail, admin.AdminFirstName, "HostelX Settings Changed", "Your HostelX Admin Password has been Changed Successfully!", "<strong>Your HostelX Admin Password has been Changed Successfully!</strong>");
                 MessageBox.Show("Password Changed Successfully!\nPlease Login With New Password.", "Success");
             }
             else

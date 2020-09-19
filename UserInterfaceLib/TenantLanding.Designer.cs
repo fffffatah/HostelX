@@ -103,7 +103,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1242, 806);
             this.Controls.Add(this.tenantTabControl);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "TenantLanding";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HostelX - Tenant";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.TenantLanding_FormClosed);
             this.tenantTabControl.ResumeLayout(false);

@@ -77,7 +77,7 @@ namespace DataAccessLib
         public bool DeleteAdmin(string adminId)
         {
             dbConnection = new DatabaseConnection();
-            dbConnection.CreateQuery("DELETE * FROM Admins WHERE AdminId=" + adminId);
+            dbConnection.CreateQuery("DELETE FROM Admins WHERE AdminId=" + adminId);
             if ((dbConnection.DoNoQuery()) < 1)
             {
                 dbConnection.Dispose();

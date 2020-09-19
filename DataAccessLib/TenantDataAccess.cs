@@ -15,7 +15,7 @@ namespace DataAccessLib
         public bool CreateTenant(Tenant tenant)
         {
             dbConnection = new DatabaseConnection();
-            dbConnection.CreateQuery("INSERT INTO Tenants(TENANTFIRSTNAME, TENANTLASTNAME, TENANTPHONE, TENANTEMAIL, TENANTADDRESS, TENANTINSTITUTION, TENANTPASS, TENANTPROFILEIMAGE, HOSTELID, TENENATGENDER) VALUES ('"+tenant.TenantFirstName+"','"+tenant.TenantLastName+"','"+tenant.TenantPhone+"','"+tenant.TenantEmail+"','"+tenant.TenantAddress+"','"+tenant.TenantInstitution+"','"+tenant.TenantPass+"','"+tenant.TenantProfileImage+"',"+tenant.HostelId+",'"+tenant.TenantGender+"')");
+            dbConnection.CreateQuery("INSERT INTO Tenants(TENANTFIRSTNAME, TENANTLASTNAME, TENANTPHONE, TENANTEMAIL, TENANTADDRESS, TENANTINSTITUTION, TENANTPASS, TENANTPROFILEIMAGE, HOSTELID, TENANTGENDER) VALUES ('"+tenant.TenantFirstName+"','"+tenant.TenantLastName+"','"+tenant.TenantPhone+"','"+tenant.TenantEmail+"','"+tenant.TenantAddress+"','"+tenant.TenantInstitution+"','"+tenant.TenantPass+"','"+tenant.TenantProfileImage+"',"+tenant.HostelId+",'"+tenant.TenantGender+"')");
             if ((dbConnection.DoNoQuery()) < 1)
             {
                 dbConnection.Dispose();
@@ -43,7 +43,6 @@ namespace DataAccessLib
                 tenant.TenantEmail = reader["TenantEmail"].ToString();
                 tenant.TenantAddress = reader["TenantAddress"].ToString();
                 tenant.TenantInstitution = reader["TenantInstitution"].ToString();
-                tenant.TenantPass = reader["TenantPass"].ToString();
                 tenant.TenantProfileImage = reader["TenantProfileImage"].ToString();
                 tenant.TenantGender = reader["TenantGender"].ToString();
                 tenant.HostelId = reader["HostelId"].ToString();
@@ -123,7 +122,7 @@ namespace DataAccessLib
         public bool DeleteTenant(string tenantId)
         {
             dbConnection = new DatabaseConnection();
-            dbConnection.CreateQuery("DELETE * FROM Tenants WHERE TenantId="+tenantId);
+            dbConnection.CreateQuery("DELETE FROM Tenants WHERE TenantId="+tenantId);
             if ((dbConnection.DoNoQuery()) < 1)
             {
                 dbConnection.Dispose();
