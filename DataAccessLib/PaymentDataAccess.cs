@@ -15,7 +15,7 @@ namespace DataAccessLib
         public bool CreatePayment(Payment payment)
         {
             dbConnection = new DatabaseConnection();
-            dbConnection.CreateQuery("INSERT INTO Payments(DUE, PAID, TENANTID, BALANCE, PAYMENTDATE) VALUES ('" + payment.Due + "','" + payment.Paid + "'," + payment.TenantId + "," + payment.Balance + ",'" + payment.PaymentDate + "')");
+            dbConnection.CreateQuery("INSERT INTO Payments(DUE, PAID, TENANTID, BALANCE, PAYMENTDATE, PAYMENTDUEDATE) VALUES ('" + payment.Due + "','" + payment.Paid + "'," + payment.TenantId + ",'" + payment.Balance + "','" + payment.PaymentDate + "','" + payment.PaymentDueDate + "')");
             if ((dbConnection.DoNoQuery()) < 1)
             {
                 dbConnection.Dispose();
@@ -40,6 +40,7 @@ namespace DataAccessLib
                 payment.Due = reader["Due"].ToString();
                 payment.Paid = reader["Paid"].ToString();
                 payment.Balance = reader["Balance"].ToString();
+                payment.PaymentDueDate = reader["PaymentDueDate"].ToString();
                 payment.PaymentDate = reader["PaymentDate"].ToString();
                 payment.TenantId = reader["TenantId"].ToString();
                 payments.Add(payment);
@@ -52,7 +53,22 @@ namespace DataAccessLib
         public bool UpdatePayment(Payment payment)
         {
             dbConnection = new DatabaseConnection();
-            dbConnection.CreateQuery("UPDATE Payments SET Due='" + payment.Due + "', Paid='" + payment.Paid + "', Balance=" + payment.Balance + ", PaymentDate='" + payment.PaymentDate + "' WHERE PaymentId"+payment.PaymentId);
+            dbConnection.CreateQuery("UPDATE Payments SET Due='" + payment.Due + "', Paid='" + payment.Paid + "', Balance='" + payment.Balance + "', PaymentDueDate='" + payment.PaymentDueDate + "', PaymentDate='" + payment.PaymentDate + "' WHERE PaymentId=" + payment.PaymentId);
+            if ((dbConnection.DoNoQuery()) < 1)
+            {
+                dbConnection.Dispose();
+                dbConnection = null;
+                return false;
+            }
+            dbConnection.Dispose();
+            dbConnection = null;
+            return true;
+        }
+
+        public bool DeletePayment(string paymentId)
+        {
+            dbConnection = new DatabaseConnection();
+            dbConnection.CreateQuery("DELETE FROM Payments WHERE PaymentId=" + paymentId);
             if ((dbConnection.DoNoQuery()) < 1)
             {
                 dbConnection.Dispose();

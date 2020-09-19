@@ -129,6 +129,19 @@
             this.foodGridViewGroupBox = new System.Windows.Forms.GroupBox();
             this.foodDataGridView = new System.Windows.Forms.DataGridView();
             this.paymentTabPage = new System.Windows.Forms.TabPage();
+            this.addPaymentDetailGroupBox = new System.Windows.Forms.GroupBox();
+            this.paymentTipLabel = new System.Windows.Forms.Label();
+            this.addDueAmountButton = new System.Windows.Forms.Button();
+            this.dueDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.dueDateLabel = new System.Windows.Forms.Label();
+            this.dueAmountTextBox = new System.Windows.Forms.TextBox();
+            this.dueAmountLabel = new System.Windows.Forms.Label();
+            this.paymentGroupBox = new System.Windows.Forms.GroupBox();
+            this.paymentTenantIdComboBox = new System.Windows.Forms.ComboBox();
+            this.paymentTenantIdLabel = new System.Windows.Forms.Label();
+            this.paymentHostelComboBox = new System.Windows.Forms.ComboBox();
+            this.paymentHostelIdLabel = new System.Windows.Forms.Label();
+            this.paymentDataGridView = new System.Windows.Forms.DataGridView();
             this.noticeTabPage = new System.Windows.Forms.TabPage();
             this.extraTabPage = new System.Windows.Forms.TabPage();
             this.hostelGridViewContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -143,22 +156,22 @@
             this.viewEditToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.refreshToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.paymentGroupBox = new System.Windows.Forms.GroupBox();
-            this.addPaymentDetailGroupBox = new System.Windows.Forms.GroupBox();
-            this.paymentDataGridView = new System.Windows.Forms.DataGridView();
             this.paymentContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.refreshToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.paymentHostelIdLabel = new System.Windows.Forms.Label();
-            this.paymentHostelComboBox = new System.Windows.Forms.ComboBox();
-            this.paymentTenantIdLabel = new System.Windows.Forms.Label();
-            this.paymentTenantIdComboBox = new System.Windows.Forms.ComboBox();
-            this.dueAmountLabel = new System.Windows.Forms.Label();
-            this.dueAmountTextBox = new System.Windows.Forms.TextBox();
-            this.dueDateLabel = new System.Windows.Forms.Label();
-            this.dueDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.addDueAmountButton = new System.Windows.Forms.Button();
-            this.paymentTipLabel = new System.Windows.Forms.Label();
+            this.noticeGroupBox = new System.Windows.Forms.GroupBox();
+            this.noticeDataGridView = new System.Windows.Forms.DataGridView();
+            this.hostelIdNoticeLabel = new System.Windows.Forms.Label();
+            this.hostelIdNoticeComboBox = new System.Windows.Forms.ComboBox();
+            this.addNoticeGroupBox = new System.Windows.Forms.GroupBox();
+            this.noticeLabel = new System.Windows.Forms.Label();
+            this.noticeTextBox = new System.Windows.Forms.TextBox();
+            this.postNoticeButton = new System.Windows.Forms.Button();
+            this.noticeContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.refreshToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutGroupBox = new System.Windows.Forms.GroupBox();
+            this.oopLabel = new System.Windows.Forms.Label();
             this.adminTabControl.SuspendLayout();
             this.profileTabPage.SuspendLayout();
             this.adminDangerZoneGroupBox.SuspendLayout();
@@ -182,13 +195,20 @@
             this.foodGridViewGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.foodDataGridView)).BeginInit();
             this.paymentTabPage.SuspendLayout();
+            this.addPaymentDetailGroupBox.SuspendLayout();
+            this.paymentGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.paymentDataGridView)).BeginInit();
+            this.noticeTabPage.SuspendLayout();
+            this.extraTabPage.SuspendLayout();
             this.hostelGridViewContextMenuStrip.SuspendLayout();
             this.tenantGridViewContextMenuStrip.SuspendLayout();
             this.foodContextMenuStrip.SuspendLayout();
-            this.paymentGroupBox.SuspendLayout();
-            this.addPaymentDetailGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.paymentDataGridView)).BeginInit();
             this.paymentContextMenuStrip.SuspendLayout();
+            this.noticeGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.noticeDataGridView)).BeginInit();
+            this.addNoticeGroupBox.SuspendLayout();
+            this.noticeContextMenuStrip.SuspendLayout();
+            this.aboutGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // adminTabControl
@@ -1241,8 +1261,147 @@
             this.paymentTabPage.Text = "Payments";
             this.paymentTabPage.UseVisualStyleBackColor = true;
             // 
+            // addPaymentDetailGroupBox
+            // 
+            this.addPaymentDetailGroupBox.Controls.Add(this.paymentTipLabel);
+            this.addPaymentDetailGroupBox.Controls.Add(this.addDueAmountButton);
+            this.addPaymentDetailGroupBox.Controls.Add(this.dueDateTimePicker);
+            this.addPaymentDetailGroupBox.Controls.Add(this.dueDateLabel);
+            this.addPaymentDetailGroupBox.Controls.Add(this.dueAmountTextBox);
+            this.addPaymentDetailGroupBox.Controls.Add(this.dueAmountLabel);
+            this.addPaymentDetailGroupBox.Location = new System.Drawing.Point(625, 3);
+            this.addPaymentDetailGroupBox.Name = "addPaymentDetailGroupBox";
+            this.addPaymentDetailGroupBox.Size = new System.Drawing.Size(600, 764);
+            this.addPaymentDetailGroupBox.TabIndex = 1;
+            this.addPaymentDetailGroupBox.TabStop = false;
+            this.addPaymentDetailGroupBox.Text = "Add Payment Details";
+            // 
+            // paymentTipLabel
+            // 
+            this.paymentTipLabel.ForeColor = System.Drawing.Color.Crimson;
+            this.paymentTipLabel.Location = new System.Drawing.Point(132, 90);
+            this.paymentTipLabel.Name = "paymentTipLabel";
+            this.paymentTipLabel.Size = new System.Drawing.Size(382, 44);
+            this.paymentTipLabel.TabIndex = 5;
+            this.paymentTipLabel.Text = "Please Select a Hostel then a Tenant from it to add    payment details for that p" +
+    "articular Tenant";
+            // 
+            // addDueAmountButton
+            // 
+            this.addDueAmountButton.Enabled = false;
+            this.addDueAmountButton.Location = new System.Drawing.Point(255, 458);
+            this.addDueAmountButton.Name = "addDueAmountButton";
+            this.addDueAmountButton.Size = new System.Drawing.Size(104, 46);
+            this.addDueAmountButton.TabIndex = 4;
+            this.addDueAmountButton.Text = "Add";
+            this.addDueAmountButton.UseVisualStyleBackColor = true;
+            this.addDueAmountButton.Click += new System.EventHandler(this.addDueAmountButton_Click);
+            // 
+            // dueDateTimePicker
+            // 
+            this.dueDateTimePicker.Location = new System.Drawing.Point(195, 330);
+            this.dueDateTimePicker.Name = "dueDateTimePicker";
+            this.dueDateTimePicker.Size = new System.Drawing.Size(289, 22);
+            this.dueDateTimePicker.TabIndex = 3;
+            this.dueDateTimePicker.ValueChanged += new System.EventHandler(this.dueDateTimePicker_ValueChanged);
+            // 
+            // dueDateLabel
+            // 
+            this.dueDateLabel.AutoSize = true;
+            this.dueDateLabel.Location = new System.Drawing.Point(120, 330);
+            this.dueDateLabel.Name = "dueDateLabel";
+            this.dueDateLabel.Size = new System.Drawing.Size(68, 17);
+            this.dueDateLabel.TabIndex = 2;
+            this.dueDateLabel.Text = "Due Date";
+            // 
+            // dueAmountTextBox
+            // 
+            this.dueAmountTextBox.Location = new System.Drawing.Point(195, 248);
+            this.dueAmountTextBox.Name = "dueAmountTextBox";
+            this.dueAmountTextBox.Size = new System.Drawing.Size(289, 22);
+            this.dueAmountTextBox.TabIndex = 1;
+            this.dueAmountTextBox.TextChanged += new System.EventHandler(this.dueAmountTextBox_TextChanged);
+            this.dueAmountTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dueAmountTextBox_KeyPress);
+            // 
+            // dueAmountLabel
+            // 
+            this.dueAmountLabel.AutoSize = true;
+            this.dueAmountLabel.Location = new System.Drawing.Point(102, 248);
+            this.dueAmountLabel.Name = "dueAmountLabel";
+            this.dueAmountLabel.Size = new System.Drawing.Size(86, 17);
+            this.dueAmountLabel.TabIndex = 0;
+            this.dueAmountLabel.Text = "Due Amount";
+            // 
+            // paymentGroupBox
+            // 
+            this.paymentGroupBox.Controls.Add(this.paymentTenantIdComboBox);
+            this.paymentGroupBox.Controls.Add(this.paymentTenantIdLabel);
+            this.paymentGroupBox.Controls.Add(this.paymentHostelComboBox);
+            this.paymentGroupBox.Controls.Add(this.paymentHostelIdLabel);
+            this.paymentGroupBox.Controls.Add(this.paymentDataGridView);
+            this.paymentGroupBox.Location = new System.Drawing.Point(3, 3);
+            this.paymentGroupBox.Name = "paymentGroupBox";
+            this.paymentGroupBox.Size = new System.Drawing.Size(616, 764);
+            this.paymentGroupBox.TabIndex = 0;
+            this.paymentGroupBox.TabStop = false;
+            this.paymentGroupBox.Text = "Payments";
+            // 
+            // paymentTenantIdComboBox
+            // 
+            this.paymentTenantIdComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.paymentTenantIdComboBox.FormattingEnabled = true;
+            this.paymentTenantIdComboBox.Location = new System.Drawing.Point(487, 29);
+            this.paymentTenantIdComboBox.Name = "paymentTenantIdComboBox";
+            this.paymentTenantIdComboBox.Size = new System.Drawing.Size(121, 24);
+            this.paymentTenantIdComboBox.TabIndex = 4;
+            this.paymentTenantIdComboBox.SelectedIndexChanged += new System.EventHandler(this.paymentTenantIdComboBox_SelectedIndexChanged);
+            // 
+            // paymentTenantIdLabel
+            // 
+            this.paymentTenantIdLabel.AutoSize = true;
+            this.paymentTenantIdLabel.Location = new System.Drawing.Point(405, 32);
+            this.paymentTenantIdLabel.Name = "paymentTenantIdLabel";
+            this.paymentTenantIdLabel.Size = new System.Drawing.Size(76, 17);
+            this.paymentTenantIdLabel.TabIndex = 3;
+            this.paymentTenantIdLabel.Text = "Tenant(ID)";
+            // 
+            // paymentHostelComboBox
+            // 
+            this.paymentHostelComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.paymentHostelComboBox.FormattingEnabled = true;
+            this.paymentHostelComboBox.Location = new System.Drawing.Point(240, 30);
+            this.paymentHostelComboBox.Name = "paymentHostelComboBox";
+            this.paymentHostelComboBox.Size = new System.Drawing.Size(121, 24);
+            this.paymentHostelComboBox.TabIndex = 2;
+            this.paymentHostelComboBox.SelectedIndexChanged += new System.EventHandler(this.paymentHostelComboBox_SelectedIndexChanged);
+            // 
+            // paymentHostelIdLabel
+            // 
+            this.paymentHostelIdLabel.AutoSize = true;
+            this.paymentHostelIdLabel.Location = new System.Drawing.Point(156, 33);
+            this.paymentHostelIdLabel.Name = "paymentHostelIdLabel";
+            this.paymentHostelIdLabel.Size = new System.Drawing.Size(78, 17);
+            this.paymentHostelIdLabel.TabIndex = 1;
+            this.paymentHostelIdLabel.Text = "Hostels(ID)";
+            // 
+            // paymentDataGridView
+            // 
+            this.paymentDataGridView.AllowUserToAddRows = false;
+            this.paymentDataGridView.AllowUserToDeleteRows = false;
+            this.paymentDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.paymentDataGridView.Location = new System.Drawing.Point(6, 70);
+            this.paymentDataGridView.Name = "paymentDataGridView";
+            this.paymentDataGridView.ReadOnly = true;
+            this.paymentDataGridView.RowHeadersWidth = 51;
+            this.paymentDataGridView.RowTemplate.Height = 24;
+            this.paymentDataGridView.Size = new System.Drawing.Size(604, 688);
+            this.paymentDataGridView.TabIndex = 0;
+            this.paymentDataGridView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.paymentDataGridView_MouseClick);
+            // 
             // noticeTabPage
             // 
+            this.noticeTabPage.Controls.Add(this.addNoticeGroupBox);
+            this.noticeTabPage.Controls.Add(this.noticeGroupBox);
             this.noticeTabPage.Location = new System.Drawing.Point(4, 25);
             this.noticeTabPage.Name = "noticeTabPage";
             this.noticeTabPage.Size = new System.Drawing.Size(1235, 776);
@@ -1252,6 +1411,7 @@
             // 
             // extraTabPage
             // 
+            this.extraTabPage.Controls.Add(this.aboutGroupBox);
             this.extraTabPage.Location = new System.Drawing.Point(4, 25);
             this.extraTabPage.Name = "extraTabPage";
             this.extraTabPage.Size = new System.Drawing.Size(1235, 776);
@@ -1352,48 +1512,6 @@
             this.deleteToolStripMenuItem2.Text = "Delete";
             this.deleteToolStripMenuItem2.Click += new System.EventHandler(this.deleteToolStripMenuItem2_Click);
             // 
-            // paymentGroupBox
-            // 
-            this.paymentGroupBox.Controls.Add(this.paymentTenantIdComboBox);
-            this.paymentGroupBox.Controls.Add(this.paymentTenantIdLabel);
-            this.paymentGroupBox.Controls.Add(this.paymentHostelComboBox);
-            this.paymentGroupBox.Controls.Add(this.paymentHostelIdLabel);
-            this.paymentGroupBox.Controls.Add(this.paymentDataGridView);
-            this.paymentGroupBox.Location = new System.Drawing.Point(3, 3);
-            this.paymentGroupBox.Name = "paymentGroupBox";
-            this.paymentGroupBox.Size = new System.Drawing.Size(616, 764);
-            this.paymentGroupBox.TabIndex = 0;
-            this.paymentGroupBox.TabStop = false;
-            this.paymentGroupBox.Text = "Payments";
-            // 
-            // addPaymentDetailGroupBox
-            // 
-            this.addPaymentDetailGroupBox.Controls.Add(this.paymentTipLabel);
-            this.addPaymentDetailGroupBox.Controls.Add(this.addDueAmountButton);
-            this.addPaymentDetailGroupBox.Controls.Add(this.dueDateTimePicker);
-            this.addPaymentDetailGroupBox.Controls.Add(this.dueDateLabel);
-            this.addPaymentDetailGroupBox.Controls.Add(this.dueAmountTextBox);
-            this.addPaymentDetailGroupBox.Controls.Add(this.dueAmountLabel);
-            this.addPaymentDetailGroupBox.Location = new System.Drawing.Point(625, 3);
-            this.addPaymentDetailGroupBox.Name = "addPaymentDetailGroupBox";
-            this.addPaymentDetailGroupBox.Size = new System.Drawing.Size(600, 764);
-            this.addPaymentDetailGroupBox.TabIndex = 1;
-            this.addPaymentDetailGroupBox.TabStop = false;
-            this.addPaymentDetailGroupBox.Text = "Add Payment Details";
-            // 
-            // paymentDataGridView
-            // 
-            this.paymentDataGridView.AllowUserToAddRows = false;
-            this.paymentDataGridView.AllowUserToDeleteRows = false;
-            this.paymentDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.paymentDataGridView.Location = new System.Drawing.Point(6, 70);
-            this.paymentDataGridView.Name = "paymentDataGridView";
-            this.paymentDataGridView.ReadOnly = true;
-            this.paymentDataGridView.RowHeadersWidth = 51;
-            this.paymentDataGridView.RowTemplate.Height = 24;
-            this.paymentDataGridView.Size = new System.Drawing.Size(604, 688);
-            this.paymentDataGridView.TabIndex = 0;
-            // 
             // paymentContextMenuStrip
             // 
             this.paymentContextMenuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -1401,106 +1519,149 @@
             this.refreshToolStripMenuItem3,
             this.deleteToolStripMenuItem3});
             this.paymentContextMenuStrip.Name = "paymentContextMenuStrip";
-            this.paymentContextMenuStrip.Size = new System.Drawing.Size(211, 80);
+            this.paymentContextMenuStrip.Size = new System.Drawing.Size(128, 52);
             // 
             // refreshToolStripMenuItem3
             // 
             this.refreshToolStripMenuItem3.Name = "refreshToolStripMenuItem3";
-            this.refreshToolStripMenuItem3.Size = new System.Drawing.Size(210, 24);
+            this.refreshToolStripMenuItem3.Size = new System.Drawing.Size(127, 24);
             this.refreshToolStripMenuItem3.Text = "Refresh";
+            this.refreshToolStripMenuItem3.Click += new System.EventHandler(this.refreshToolStripMenuItem3_Click);
             // 
             // deleteToolStripMenuItem3
             // 
             this.deleteToolStripMenuItem3.Name = "deleteToolStripMenuItem3";
-            this.deleteToolStripMenuItem3.Size = new System.Drawing.Size(210, 24);
+            this.deleteToolStripMenuItem3.Size = new System.Drawing.Size(127, 24);
             this.deleteToolStripMenuItem3.Text = "Delete";
+            this.deleteToolStripMenuItem3.Click += new System.EventHandler(this.deleteToolStripMenuItem3_Click);
             // 
-            // paymentHostelIdLabel
+            // noticeGroupBox
             // 
-            this.paymentHostelIdLabel.AutoSize = true;
-            this.paymentHostelIdLabel.Location = new System.Drawing.Point(156, 33);
-            this.paymentHostelIdLabel.Name = "paymentHostelIdLabel";
-            this.paymentHostelIdLabel.Size = new System.Drawing.Size(78, 17);
-            this.paymentHostelIdLabel.TabIndex = 1;
-            this.paymentHostelIdLabel.Text = "Hostels(ID)";
+            this.noticeGroupBox.Controls.Add(this.hostelIdNoticeComboBox);
+            this.noticeGroupBox.Controls.Add(this.hostelIdNoticeLabel);
+            this.noticeGroupBox.Controls.Add(this.noticeDataGridView);
+            this.noticeGroupBox.Location = new System.Drawing.Point(7, 3);
+            this.noticeGroupBox.Name = "noticeGroupBox";
+            this.noticeGroupBox.Size = new System.Drawing.Size(623, 770);
+            this.noticeGroupBox.TabIndex = 0;
+            this.noticeGroupBox.TabStop = false;
+            this.noticeGroupBox.Text = "Notices";
             // 
-            // paymentHostelComboBox
+            // noticeDataGridView
             // 
-            this.paymentHostelComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.paymentHostelComboBox.FormattingEnabled = true;
-            this.paymentHostelComboBox.Location = new System.Drawing.Point(240, 30);
-            this.paymentHostelComboBox.Name = "paymentHostelComboBox";
-            this.paymentHostelComboBox.Size = new System.Drawing.Size(121, 24);
-            this.paymentHostelComboBox.TabIndex = 2;
+            this.noticeDataGridView.AllowUserToAddRows = false;
+            this.noticeDataGridView.AllowUserToDeleteRows = false;
+            this.noticeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.noticeDataGridView.Location = new System.Drawing.Point(6, 73);
+            this.noticeDataGridView.Name = "noticeDataGridView";
+            this.noticeDataGridView.ReadOnly = true;
+            this.noticeDataGridView.RowHeadersWidth = 51;
+            this.noticeDataGridView.RowTemplate.Height = 24;
+            this.noticeDataGridView.Size = new System.Drawing.Size(611, 691);
+            this.noticeDataGridView.TabIndex = 0;
+            this.noticeDataGridView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.noticeDataGridView_MouseClick);
             // 
-            // paymentTenantIdLabel
+            // hostelIdNoticeLabel
             // 
-            this.paymentTenantIdLabel.AutoSize = true;
-            this.paymentTenantIdLabel.Location = new System.Drawing.Point(405, 32);
-            this.paymentTenantIdLabel.Name = "paymentTenantIdLabel";
-            this.paymentTenantIdLabel.Size = new System.Drawing.Size(76, 17);
-            this.paymentTenantIdLabel.TabIndex = 3;
-            this.paymentTenantIdLabel.Text = "Tenant(ID)";
+            this.hostelIdNoticeLabel.AutoSize = true;
+            this.hostelIdNoticeLabel.Location = new System.Drawing.Point(419, 33);
+            this.hostelIdNoticeLabel.Name = "hostelIdNoticeLabel";
+            this.hostelIdNoticeLabel.Size = new System.Drawing.Size(71, 17);
+            this.hostelIdNoticeLabel.TabIndex = 1;
+            this.hostelIdNoticeLabel.Text = "Hostel(ID)";
             // 
-            // paymentTenantIdComboBox
+            // hostelIdNoticeComboBox
             // 
-            this.paymentTenantIdComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.paymentTenantIdComboBox.FormattingEnabled = true;
-            this.paymentTenantIdComboBox.Location = new System.Drawing.Point(487, 29);
-            this.paymentTenantIdComboBox.Name = "paymentTenantIdComboBox";
-            this.paymentTenantIdComboBox.Size = new System.Drawing.Size(121, 24);
-            this.paymentTenantIdComboBox.TabIndex = 4;
+            this.hostelIdNoticeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.hostelIdNoticeComboBox.FormattingEnabled = true;
+            this.hostelIdNoticeComboBox.Location = new System.Drawing.Point(496, 30);
+            this.hostelIdNoticeComboBox.Name = "hostelIdNoticeComboBox";
+            this.hostelIdNoticeComboBox.Size = new System.Drawing.Size(121, 24);
+            this.hostelIdNoticeComboBox.TabIndex = 2;
+            this.hostelIdNoticeComboBox.SelectedIndexChanged += new System.EventHandler(this.hostelIdNoticeComboBox_SelectedIndexChanged);
             // 
-            // dueAmountLabel
+            // addNoticeGroupBox
             // 
-            this.dueAmountLabel.AutoSize = true;
-            this.dueAmountLabel.Location = new System.Drawing.Point(102, 248);
-            this.dueAmountLabel.Name = "dueAmountLabel";
-            this.dueAmountLabel.Size = new System.Drawing.Size(86, 17);
-            this.dueAmountLabel.TabIndex = 0;
-            this.dueAmountLabel.Text = "Due Amount";
+            this.addNoticeGroupBox.Controls.Add(this.postNoticeButton);
+            this.addNoticeGroupBox.Controls.Add(this.noticeTextBox);
+            this.addNoticeGroupBox.Controls.Add(this.noticeLabel);
+            this.addNoticeGroupBox.Location = new System.Drawing.Point(636, 3);
+            this.addNoticeGroupBox.Name = "addNoticeGroupBox";
+            this.addNoticeGroupBox.Size = new System.Drawing.Size(589, 770);
+            this.addNoticeGroupBox.TabIndex = 1;
+            this.addNoticeGroupBox.TabStop = false;
+            this.addNoticeGroupBox.Text = "New Notice";
             // 
-            // dueAmountTextBox
+            // noticeLabel
             // 
-            this.dueAmountTextBox.Location = new System.Drawing.Point(195, 248);
-            this.dueAmountTextBox.Name = "dueAmountTextBox";
-            this.dueAmountTextBox.Size = new System.Drawing.Size(289, 22);
-            this.dueAmountTextBox.TabIndex = 1;
+            this.noticeLabel.AutoSize = true;
+            this.noticeLabel.Location = new System.Drawing.Point(79, 98);
+            this.noticeLabel.Name = "noticeLabel";
+            this.noticeLabel.Size = new System.Drawing.Size(48, 17);
+            this.noticeLabel.TabIndex = 0;
+            this.noticeLabel.Text = "Notice";
             // 
-            // dueDateLabel
+            // noticeTextBox
             // 
-            this.dueDateLabel.AutoSize = true;
-            this.dueDateLabel.Location = new System.Drawing.Point(120, 330);
-            this.dueDateLabel.Name = "dueDateLabel";
-            this.dueDateLabel.Size = new System.Drawing.Size(68, 17);
-            this.dueDateLabel.TabIndex = 2;
-            this.dueDateLabel.Text = "Due Date";
+            this.noticeTextBox.Location = new System.Drawing.Point(134, 98);
+            this.noticeTextBox.Multiline = true;
+            this.noticeTextBox.Name = "noticeTextBox";
+            this.noticeTextBox.Size = new System.Drawing.Size(354, 236);
+            this.noticeTextBox.TabIndex = 1;
+            this.noticeTextBox.TextChanged += new System.EventHandler(this.noticeTextBox_TextChanged);
             // 
-            // dueDateTimePicker
+            // postNoticeButton
             // 
-            this.dueDateTimePicker.Location = new System.Drawing.Point(195, 330);
-            this.dueDateTimePicker.Name = "dueDateTimePicker";
-            this.dueDateTimePicker.Size = new System.Drawing.Size(289, 22);
-            this.dueDateTimePicker.TabIndex = 3;
+            this.postNoticeButton.Enabled = false;
+            this.postNoticeButton.Location = new System.Drawing.Point(227, 406);
+            this.postNoticeButton.Name = "postNoticeButton";
+            this.postNoticeButton.Size = new System.Drawing.Size(138, 55);
+            this.postNoticeButton.TabIndex = 2;
+            this.postNoticeButton.Text = "Post";
+            this.postNoticeButton.UseVisualStyleBackColor = true;
+            this.postNoticeButton.Click += new System.EventHandler(this.postNoticeButton_Click);
             // 
-            // addDueAmountButton
+            // noticeContextMenuStrip
             // 
-            this.addDueAmountButton.Location = new System.Drawing.Point(255, 458);
-            this.addDueAmountButton.Name = "addDueAmountButton";
-            this.addDueAmountButton.Size = new System.Drawing.Size(104, 46);
-            this.addDueAmountButton.TabIndex = 4;
-            this.addDueAmountButton.Text = "Add";
-            this.addDueAmountButton.UseVisualStyleBackColor = true;
+            this.noticeContextMenuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.noticeContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.refreshToolStripMenuItem4,
+            this.deleteToolStripMenuItem4});
+            this.noticeContextMenuStrip.Name = "noticeContextMenuStrip";
+            this.noticeContextMenuStrip.Size = new System.Drawing.Size(128, 52);
             // 
-            // paymentTipLabel
+            // refreshToolStripMenuItem4
             // 
-            this.paymentTipLabel.ForeColor = System.Drawing.Color.Crimson;
-            this.paymentTipLabel.Location = new System.Drawing.Point(132, 90);
-            this.paymentTipLabel.Name = "paymentTipLabel";
-            this.paymentTipLabel.Size = new System.Drawing.Size(382, 44);
-            this.paymentTipLabel.TabIndex = 5;
-            this.paymentTipLabel.Text = "Please Select a Hostel then a Tenant from it to add    payment details for that p" +
-    "articular Tenant";
+            this.refreshToolStripMenuItem4.Name = "refreshToolStripMenuItem4";
+            this.refreshToolStripMenuItem4.Size = new System.Drawing.Size(127, 24);
+            this.refreshToolStripMenuItem4.Text = "Refresh";
+            this.refreshToolStripMenuItem4.Click += new System.EventHandler(this.refreshToolStripMenuItem4_Click);
+            // 
+            // deleteToolStripMenuItem4
+            // 
+            this.deleteToolStripMenuItem4.Name = "deleteToolStripMenuItem4";
+            this.deleteToolStripMenuItem4.Size = new System.Drawing.Size(127, 24);
+            this.deleteToolStripMenuItem4.Text = "Delete";
+            this.deleteToolStripMenuItem4.Click += new System.EventHandler(this.deleteToolStripMenuItem4_Click);
+            // 
+            // aboutGroupBox
+            // 
+            this.aboutGroupBox.Controls.Add(this.oopLabel);
+            this.aboutGroupBox.Location = new System.Drawing.Point(364, 95);
+            this.aboutGroupBox.Name = "aboutGroupBox";
+            this.aboutGroupBox.Size = new System.Drawing.Size(440, 369);
+            this.aboutGroupBox.TabIndex = 0;
+            this.aboutGroupBox.TabStop = false;
+            this.aboutGroupBox.Text = "About";
+            // 
+            // oopLabel
+            // 
+            this.oopLabel.AutoSize = true;
+            this.oopLabel.Location = new System.Drawing.Point(120, 90);
+            this.oopLabel.Name = "oopLabel";
+            this.oopLabel.Size = new System.Drawing.Size(200, 17);
+            this.oopLabel.TabIndex = 0;
+            this.oopLabel.Text = "OOP2 Project Summer [19-20]";
             // 
             // AdminLanding
             // 
@@ -1546,15 +1707,25 @@
             this.foodGridViewGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.foodDataGridView)).EndInit();
             this.paymentTabPage.ResumeLayout(false);
+            this.addPaymentDetailGroupBox.ResumeLayout(false);
+            this.addPaymentDetailGroupBox.PerformLayout();
+            this.paymentGroupBox.ResumeLayout(false);
+            this.paymentGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.paymentDataGridView)).EndInit();
+            this.noticeTabPage.ResumeLayout(false);
+            this.extraTabPage.ResumeLayout(false);
             this.hostelGridViewContextMenuStrip.ResumeLayout(false);
             this.tenantGridViewContextMenuStrip.ResumeLayout(false);
             this.foodContextMenuStrip.ResumeLayout(false);
-            this.paymentGroupBox.ResumeLayout(false);
-            this.paymentGroupBox.PerformLayout();
-            this.addPaymentDetailGroupBox.ResumeLayout(false);
-            this.addPaymentDetailGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.paymentDataGridView)).EndInit();
             this.paymentContextMenuStrip.ResumeLayout(false);
+            this.noticeGroupBox.ResumeLayout(false);
+            this.noticeGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.noticeDataGridView)).EndInit();
+            this.addNoticeGroupBox.ResumeLayout(false);
+            this.addNoticeGroupBox.PerformLayout();
+            this.noticeContextMenuStrip.ResumeLayout(false);
+            this.aboutGroupBox.ResumeLayout(false);
+            this.aboutGroupBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1691,5 +1862,18 @@
         private System.Windows.Forms.TextBox dueAmountTextBox;
         private System.Windows.Forms.Label paymentTipLabel;
         private System.Windows.Forms.Button addDueAmountButton;
+        private System.Windows.Forms.GroupBox addNoticeGroupBox;
+        private System.Windows.Forms.TextBox noticeTextBox;
+        private System.Windows.Forms.Label noticeLabel;
+        private System.Windows.Forms.GroupBox noticeGroupBox;
+        private System.Windows.Forms.ComboBox hostelIdNoticeComboBox;
+        private System.Windows.Forms.Label hostelIdNoticeLabel;
+        private System.Windows.Forms.DataGridView noticeDataGridView;
+        private System.Windows.Forms.Button postNoticeButton;
+        private System.Windows.Forms.ContextMenuStrip noticeContextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem4;
+        private System.Windows.Forms.GroupBox aboutGroupBox;
+        private System.Windows.Forms.Label oopLabel;
     }
 }

@@ -217,6 +217,12 @@ namespace UserInterfaceLib
             {
                 if (new HostelDataAccess().DeleteHostel(hostelsDataGridView.Rows[currentMouseOverRow].Cells[0].Value.ToString()))
                 {
+                    paymentTenantIdComboBox.Items.Clear();
+                    paymentTenantIdComboBox.ResetText();
+                    paymentHostelComboBox.Items.Clear();
+                    paymentHostelComboBox.ResetText();
+                    hostelIdNoticeComboBox.Items.Clear();
+                    hostelIdNoticeComboBox.ResetText();
                     tenantByHostelComboBox.Items.Remove(hostelsDataGridView.Rows[currentMouseOverRow].Cells[0].Value.ToString());
                     tenantHostelIdComboBox.Items.Remove(hostelsDataGridView.Rows[currentMouseOverRow].Cells[0].Value.ToString());
                     hostelsDataGridView.DataSource = new HostelDataAccess().GetHostels(admin.AdminId);
@@ -279,6 +285,13 @@ namespace UserInterfaceLib
             {
                 if (new TenantDataAccess().DeleteTenant(tenantsGridView.Rows[currentMouseOverRow].Cells[0].Value.ToString()))
                 {
+                    paymentTenantIdComboBox.Items.Clear();
+                    paymentTenantIdComboBox.ResetText();
+                    paymentHostelComboBox.Items.Clear();
+                    paymentHostelComboBox.ResetText();
+                    Hostel hostel = new HostelDataAccess().GetHostel(tenantsGridView.Rows[currentMouseOverRow].Cells[10].Value.ToString());
+                    hostel.HostelCapacity = (Int32.Parse(hostel.HostelCapacity) + 1).ToString();
+                    new HostelDataAccess().UpdateHostel(hostel);
                     MessageBox.Show("Tenant Deleted Successfully!", "Success");
                     viewEditTenantGroupBox.Visible = false;
                 }
@@ -640,8 +653,191 @@ namespace UserInterfaceLib
         //ADMIN FOOD TAB PAGE END
 
         //ADMIN PAYMENT TAB PAGE START
+        private void SetAddDueAmountButtonStatus()
+        {
+            addDueAmountButton.Enabled = (dueAmountTextBox.Text != "" || dueAmountTextBox.Visible == false) && (dueDateTimePicker.Value.Date > DateTime.Now.Date);
+        }
 
+        private void dueAmountTextBox_TextChanged(object sender, EventArgs e)
+        {
+            SetAddDueAmountButtonStatus();
+        }
+
+        private void dueDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            SetAddDueAmountButtonStatus();
+        }
+
+        private void dueAmountTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void addDueAmountButton_Click(object sender, EventArgs e)
+        {
+            if(!(paymentTenantIdComboBox.SelectedIndex < 0))
+            {
+                Payment payment = new Payment();
+                payment.TenantId = paymentTenantIdComboBox.Text;
+                payment.Due = dueAmountTextBox.Text;
+                payment.Paid = "0";
+                payment.Balance = dueAmountTextBox.Text;
+                payment.PaymentDate = "N/A";
+                payment.PaymentDueDate = dueDateTimePicker.Value.Date.ToString();
+                if (new PaymentDataAccess().CreatePayment(payment))
+                {
+                    paymentDataGridView.DataSource = new PaymentDataAccess().GetPayments(payment.TenantId);
+                    MessageBox.Show("Payment Added Successfully!", "Success");
+                }
+                else
+                {
+                    MessageBox.Show("Could Not Add Payment!", "Failed");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please Select a Tenant First!", "Failed");
+            }
+        }
+
+        private void paymentHostelComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            paymentTenantIdComboBox.Items.Clear();
+            paymentTenantIdComboBox.ResetText();
+            List<Tenant> tenants = new TenantDataAccess().GetTenants(paymentHostelComboBox.Text);
+            foreach(var tenant in tenants)
+            {
+                paymentTenantIdComboBox.Items.Add(tenant.TenantId);
+            }
+        }
+
+        private void paymentTenantIdComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            paymentDataGridView.DataSource = new PaymentDataAccess().GetPayments(paymentTenantIdComboBox.Text);
+        }
+
+        private void refreshToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            paymentTenantIdComboBox.Items.Clear();
+            paymentTenantIdComboBox.ResetText();
+            paymentHostelComboBox.Items.Clear();
+            paymentHostelComboBox.ResetText();
+            List<Hostel> hostels = new HostelDataAccess().GetHostels(admin.AdminId);
+            foreach(var hostel in hostels)
+            {
+                paymentHostelComboBox.Items.Add(hostel.HostelId);
+            }
+        }
+
+        private void deleteToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            if (currentMouseOverRow >= 0)
+            {
+                if(new PaymentDataAccess().DeletePayment(paymentDataGridView.Rows[currentMouseOverRow].Cells[0].Value.ToString()))
+                {
+                    paymentDataGridView.DataSource = new PaymentDataAccess().GetPayments(paymentDataGridView.Rows[currentMouseOverRow].Cells[6].Value.ToString());
+                    MessageBox.Show("Payment Deleted Successfully!", "Success");
+                }
+                else
+                {
+                    MessageBox.Show("Could Not Delete Payment!", "Failed");
+                }
+            }
+        }
+
+        private void paymentDataGridView_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                paymentContextMenuStrip.Show(MousePosition.X, MousePosition.Y);
+                currentMouseOverRow = paymentDataGridView.HitTest(e.X, e.Y).RowIndex;
+            }
+        }
         //ADMIN PAYMENT TAB PAGE END
+
+        //ADMIN NOTICES TAB PAGE START
+        private void SetPostNoticeButtonStatus()
+        {
+            postNoticeButton.Enabled = (noticeTextBox.Text != "" || noticeTextBox.Visible == false);
+        }
+
+        private void noticeTextBox_TextChanged(object sender, EventArgs e)
+        {
+            SetPostNoticeButtonStatus();
+        }
+
+        private void refreshToolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            hostelIdNoticeComboBox.Items.Clear();
+            hostelIdNoticeComboBox.ResetText();
+            List<Hostel> hostels = new HostelDataAccess().GetHostels(admin.AdminId);
+            foreach(var hostel in hostels)
+            {
+                hostelIdNoticeComboBox.Items.Add(hostel.HostelId);
+            }
+            if (hostelIdNoticeComboBox.SelectedIndex >= 0)
+            {
+                noticeDataGridView.DataSource = new NoticesDataAccess().GetNotices(hostelIdNoticeComboBox.Text);
+            }
+        }
+
+        private void deleteToolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            if (currentMouseOverRow >= 0)
+            {
+                if(new NoticesDataAccess().DeleteNotice(noticeDataGridView.Rows[currentMouseOverRow].Cells[0].Value.ToString()))
+                {
+                    noticeDataGridView.DataSource = new NoticesDataAccess().GetNotices(hostelIdNoticeComboBox.Text);
+                    MessageBox.Show("Notice Deleted Successfully!", "Success");
+                }
+                else
+                {
+                    MessageBox.Show("Could Not Delete Notice!", "Failed");
+                }
+            }
+        }
+
+        private void postNoticeButton_Click(object sender, EventArgs e)
+        {
+            if (hostelIdNoticeComboBox.SelectedIndex >= 0)
+            {
+                Notices notices = new Notices();
+                notices.Notice = noticeTextBox.Text;
+                notices.Date = DateTime.Now.Date.ToString();
+                notices.HostelId = hostelIdNoticeComboBox.Text;
+                if(new NoticesDataAccess().CreateNotice(notices))
+                {
+                    noticeDataGridView.DataSource = new NoticesDataAccess().GetNotices(hostelIdNoticeComboBox.Text);
+                    MessageBox.Show("Notice Posted Successfully!", "Success");
+                    List<Tenant> tenants = new TenantDataAccess().GetTenants(hostelIdNoticeComboBox.Text);
+                    foreach(var tenant in tenants)
+                    {
+                        new MailSender().Send("hostelx.x@yandex.com", "HostelX", tenant.TenantEmail, tenant.TenantFirstName, "New Notice from Admin", "New Notice Has Been Posted by the Admin!", "<strong>Notice: "+notices.Notice+"</strong>");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please Select a Hostel First!", "Failed");
+            }
+        }
+
+        private void noticeDataGridView_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                noticeContextMenuStrip.Show(MousePosition.X, MousePosition.Y);
+                currentMouseOverRow = noticeDataGridView.HitTest(e.X, e.Y).RowIndex;
+            }
+        }
+
+        private void hostelIdNoticeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            noticeDataGridView.DataSource = new NoticesDataAccess().GetNotices(hostelIdNoticeComboBox.Text);
+        }
     }
 }
 

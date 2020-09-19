@@ -47,21 +47,6 @@ namespace DataAccessLib
             return notices;
         }
 
-        public bool UpdateNotice(Notices notices)
-        {
-            dbConnection = new DatabaseConnection();
-            dbConnection.CreateQuery("UPDATE Notices SET Notice='"+notices.Notice+"' WHERE NoticeId="+notices.NoticeId);
-            if ((dbConnection.DoNoQuery()) < 1)
-            {
-                dbConnection.Dispose();
-                dbConnection = null;
-                return false;
-            }
-            dbConnection.Dispose();
-            dbConnection = null;
-            return true;
-        }
-
         public bool DeleteNotice(string noticeId)
         {
             dbConnection = new DatabaseConnection();

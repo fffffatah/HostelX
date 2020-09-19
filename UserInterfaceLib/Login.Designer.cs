@@ -73,6 +73,13 @@
             this.tenantLoginPassTextBox = new System.Windows.Forms.TextBox();
             this.tenantLoginPassLabel = new System.Windows.Forms.Label();
             this.tenantLoginEmailLabel = new System.Windows.Forms.Label();
+            this.tenantPassResetOtpLabel = new System.Windows.Forms.Label();
+            this.tenantPassResetOtpTextBox = new System.Windows.Forms.TextBox();
+            this.tenantPassResetNewPassLabel = new System.Windows.Forms.Label();
+            this.tenantPassresetChangeButton = new System.Windows.Forms.Button();
+            this.tenantPassResetSubmitButton = new System.Windows.Forms.Button();
+            this.tenantPassResetGoButton = new System.Windows.Forms.Button();
+            this.tenantPassResetCancelButton = new System.Windows.Forms.Button();
             this.otpGroupBox.SuspendLayout();
             this.adminLoginGroupBox.SuspendLayout();
             this.signupGroupBox.SuspendLayout();
@@ -560,6 +567,13 @@
             // 
             // tenantloginGroupBox
             // 
+            this.tenantloginGroupBox.Controls.Add(this.tenantPassresetChangeButton);
+            this.tenantloginGroupBox.Controls.Add(this.tenantPassResetSubmitButton);
+            this.tenantloginGroupBox.Controls.Add(this.tenantPassResetGoButton);
+            this.tenantloginGroupBox.Controls.Add(this.tenantPassResetCancelButton);
+            this.tenantloginGroupBox.Controls.Add(this.tenantPassResetNewPassLabel);
+            this.tenantloginGroupBox.Controls.Add(this.tenantPassResetOtpLabel);
+            this.tenantloginGroupBox.Controls.Add(this.tenantPassResetOtpTextBox);
             this.tenantloginGroupBox.Controls.Add(this.tenantForgotPassButton);
             this.tenantloginGroupBox.Controls.Add(this.tenantLoginButton);
             this.tenantloginGroupBox.Controls.Add(this.tenantLoginEmailTextBox);
@@ -580,12 +594,13 @@
             this.tenantForgotPassButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tenantForgotPassButton.FlatAppearance.BorderSize = 0;
             this.tenantForgotPassButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.tenantForgotPassButton.Location = new System.Drawing.Point(147, 141);
+            this.tenantForgotPassButton.Location = new System.Drawing.Point(147, 223);
             this.tenantForgotPassButton.Name = "tenantForgotPassButton";
             this.tenantForgotPassButton.Size = new System.Drawing.Size(134, 34);
             this.tenantForgotPassButton.TabIndex = 21;
             this.tenantForgotPassButton.Text = "Forgot Password?";
             this.tenantForgotPassButton.UseVisualStyleBackColor = false;
+            this.tenantForgotPassButton.Click += new System.EventHandler(this.tenantForgotPassButton_Click);
             // 
             // tenantLoginButton
             // 
@@ -596,7 +611,7 @@
             this.tenantLoginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.tenantLoginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tenantLoginButton.ForeColor = System.Drawing.Color.White;
-            this.tenantLoginButton.Location = new System.Drawing.Point(156, 211);
+            this.tenantLoginButton.Location = new System.Drawing.Point(156, 263);
             this.tenantLoginButton.Name = "tenantLoginButton";
             this.tenantLoginButton.Size = new System.Drawing.Size(114, 41);
             this.tenantLoginButton.TabIndex = 19;
@@ -643,6 +658,109 @@
             this.tenantLoginEmailLabel.Size = new System.Drawing.Size(42, 17);
             this.tenantLoginEmailLabel.TabIndex = 3;
             this.tenantLoginEmailLabel.Text = "Email";
+            // 
+            // tenantPassResetOtpLabel
+            // 
+            this.tenantPassResetOtpLabel.AutoSize = true;
+            this.tenantPassResetOtpLabel.Location = new System.Drawing.Point(96, 137);
+            this.tenantPassResetOtpLabel.Name = "tenantPassResetOtpLabel";
+            this.tenantPassResetOtpLabel.Size = new System.Drawing.Size(37, 17);
+            this.tenantPassResetOtpLabel.TabIndex = 28;
+            this.tenantPassResetOtpLabel.Text = "OTP";
+            this.tenantPassResetOtpLabel.Visible = false;
+            // 
+            // tenantPassResetOtpTextBox
+            // 
+            this.tenantPassResetOtpTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tenantPassResetOtpTextBox.Location = new System.Drawing.Point(156, 131);
+            this.tenantPassResetOtpTextBox.MaxLength = 6;
+            this.tenantPassResetOtpTextBox.Name = "tenantPassResetOtpTextBox";
+            this.tenantPassResetOtpTextBox.Size = new System.Drawing.Size(124, 26);
+            this.tenantPassResetOtpTextBox.TabIndex = 27;
+            this.tenantPassResetOtpTextBox.Visible = false;
+            this.tenantPassResetOtpTextBox.TextChanged += new System.EventHandler(this.tenantPassResetOtpTextBox_TextChanged);
+            this.tenantPassResetOtpTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tenantPassResetOtpTextBox_KeyPress);
+            // 
+            // tenantPassResetNewPassLabel
+            // 
+            this.tenantPassResetNewPassLabel.AutoSize = true;
+            this.tenantPassResetNewPassLabel.Location = new System.Drawing.Point(34, 84);
+            this.tenantPassResetNewPassLabel.Name = "tenantPassResetNewPassLabel";
+            this.tenantPassResetNewPassLabel.Size = new System.Drawing.Size(100, 17);
+            this.tenantPassResetNewPassLabel.TabIndex = 29;
+            this.tenantPassResetNewPassLabel.Text = "New Password";
+            this.tenantPassResetNewPassLabel.Visible = false;
+            // 
+            // tenantPassresetChangeButton
+            // 
+            this.tenantPassresetChangeButton.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.tenantPassresetChangeButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.tenantPassresetChangeButton.Enabled = false;
+            this.tenantPassresetChangeButton.FlatAppearance.BorderSize = 0;
+            this.tenantPassresetChangeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.tenantPassresetChangeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tenantPassresetChangeButton.ForeColor = System.Drawing.Color.White;
+            this.tenantPassresetChangeButton.Location = new System.Drawing.Point(222, 263);
+            this.tenantPassresetChangeButton.Name = "tenantPassresetChangeButton";
+            this.tenantPassresetChangeButton.Size = new System.Drawing.Size(114, 41);
+            this.tenantPassresetChangeButton.TabIndex = 35;
+            this.tenantPassresetChangeButton.Text = "Change";
+            this.tenantPassresetChangeButton.UseVisualStyleBackColor = false;
+            this.tenantPassresetChangeButton.Visible = false;
+            this.tenantPassresetChangeButton.Click += new System.EventHandler(this.tenantPassresetChangeButton_Click);
+            // 
+            // tenantPassResetSubmitButton
+            // 
+            this.tenantPassResetSubmitButton.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.tenantPassResetSubmitButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.tenantPassResetSubmitButton.Enabled = false;
+            this.tenantPassResetSubmitButton.FlatAppearance.BorderSize = 0;
+            this.tenantPassResetSubmitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.tenantPassResetSubmitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tenantPassResetSubmitButton.ForeColor = System.Drawing.Color.White;
+            this.tenantPassResetSubmitButton.Location = new System.Drawing.Point(224, 263);
+            this.tenantPassResetSubmitButton.Name = "tenantPassResetSubmitButton";
+            this.tenantPassResetSubmitButton.Size = new System.Drawing.Size(114, 41);
+            this.tenantPassResetSubmitButton.TabIndex = 34;
+            this.tenantPassResetSubmitButton.Text = "Submit";
+            this.tenantPassResetSubmitButton.UseVisualStyleBackColor = false;
+            this.tenantPassResetSubmitButton.Visible = false;
+            this.tenantPassResetSubmitButton.Click += new System.EventHandler(this.tenantPassResetSubmitButton_Click);
+            // 
+            // tenantPassResetGoButton
+            // 
+            this.tenantPassResetGoButton.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.tenantPassResetGoButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.tenantPassResetGoButton.Enabled = false;
+            this.tenantPassResetGoButton.FlatAppearance.BorderSize = 0;
+            this.tenantPassResetGoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.tenantPassResetGoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tenantPassResetGoButton.ForeColor = System.Drawing.Color.White;
+            this.tenantPassResetGoButton.Location = new System.Drawing.Point(222, 263);
+            this.tenantPassResetGoButton.Name = "tenantPassResetGoButton";
+            this.tenantPassResetGoButton.Size = new System.Drawing.Size(114, 41);
+            this.tenantPassResetGoButton.TabIndex = 33;
+            this.tenantPassResetGoButton.Text = "Go";
+            this.tenantPassResetGoButton.UseVisualStyleBackColor = false;
+            this.tenantPassResetGoButton.Visible = false;
+            this.tenantPassResetGoButton.Click += new System.EventHandler(this.tenantPassResetGoButton_Click);
+            // 
+            // tenantPassResetCancelButton
+            // 
+            this.tenantPassResetCancelButton.BackColor = System.Drawing.Color.DeepPink;
+            this.tenantPassResetCancelButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.tenantPassResetCancelButton.FlatAppearance.BorderSize = 0;
+            this.tenantPassResetCancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.tenantPassResetCancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tenantPassResetCancelButton.ForeColor = System.Drawing.Color.White;
+            this.tenantPassResetCancelButton.Location = new System.Drawing.Point(85, 263);
+            this.tenantPassResetCancelButton.Name = "tenantPassResetCancelButton";
+            this.tenantPassResetCancelButton.Size = new System.Drawing.Size(114, 41);
+            this.tenantPassResetCancelButton.TabIndex = 32;
+            this.tenantPassResetCancelButton.Text = "Cancel";
+            this.tenantPassResetCancelButton.UseVisualStyleBackColor = false;
+            this.tenantPassResetCancelButton.Visible = false;
+            this.tenantPassResetCancelButton.Click += new System.EventHandler(this.tenantPassResetCancelButton_Click);
             // 
             // Login
             // 
@@ -720,5 +838,12 @@
         private System.Windows.Forms.Button adminLoginForgotPassChangeButton;
         private System.Windows.Forms.Label adminLoginForgotPassOtpLabel;
         private System.Windows.Forms.Label adminLoginForgotPassNewPassLabel;
+        private System.Windows.Forms.Button tenantPassresetChangeButton;
+        private System.Windows.Forms.Button tenantPassResetSubmitButton;
+        private System.Windows.Forms.Button tenantPassResetGoButton;
+        private System.Windows.Forms.Button tenantPassResetCancelButton;
+        private System.Windows.Forms.Label tenantPassResetNewPassLabel;
+        private System.Windows.Forms.Label tenantPassResetOtpLabel;
+        private System.Windows.Forms.TextBox tenantPassResetOtpTextBox;
     }
 }

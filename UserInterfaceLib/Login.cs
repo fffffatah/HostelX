@@ -182,6 +182,7 @@ namespace UserInterfaceLib
         private void SetTenantSigninButtonStatus()
         {
             tenantLoginButton.Enabled = (tenantLoginPassTextBox.Text != "" || tenantLoginPassTextBox.Visible == false) && (new CommonValidation().IsValidEmail(tenantLoginEmailTextBox.Text));
+            tenantPassResetGoButton.Enabled = (new CommonValidation().IsValidEmail(tenantLoginEmailTextBox.Text));
         }
 
         private void tenantLoginEmailTextBox_TextChanged(object sender, EventArgs e)
@@ -192,6 +193,7 @@ namespace UserInterfaceLib
         private void tenantLoginPassTextBox_TextChanged(object sender, EventArgs e)
         {
             SetTenantSigninButtonStatus();
+            tenantPassresetChangeButton.Enabled = (tenantLoginPassTextBox.Text != "" || tenantLoginPassTextBox.Visible == false);
         }
 
         private void tenantLoginButton_Click(object sender, EventArgs e)
@@ -294,6 +296,7 @@ namespace UserInterfaceLib
             adminLoginPassTextBox.Visible = false;
             adminCancelForgotPassButton.Visible = true;
             adminForgotPassGoButton.Visible = true;
+            adminForgotPassButton.Visible = false;
         }
 
         private void adminCancelForgotPassButton_Click(object sender, EventArgs e)
@@ -310,6 +313,7 @@ namespace UserInterfaceLib
             adminLoginForgotPassNewPassLabel.Visible = false;
             adminLoginPhoneTextBox.Enabled = true;
             adminLoginForgotPassChangeButton.Visible = false;
+            adminForgotPassButton.Visible = true;
         }
 
         private void adminForgotPassGoButton_Click(object sender, EventArgs e)
@@ -376,6 +380,7 @@ namespace UserInterfaceLib
             adminLoginForgotPassNewPassLabel.Visible = false;
             adminLoginPhoneTextBox.Enabled = true;
             adminLoginForgotPassChangeButton.Visible = false;
+            adminForgotPassButton.Visible = true;
             if (new AdminDataAccess().UpdatePassword(adminLoginPhoneTextBox.Text, adminLoginPassTextBox.Text))
             {
                 Admin admin = new AdminDataAccess().GetAdmin(adminLoginPhoneTextBox.Text, adminLoginPassTextBox.Text);
@@ -391,8 +396,101 @@ namespace UserInterfaceLib
         //=========================================
 
         //TENANT LOGIN FORGOT PASSWORD PART START
+        private void tenantForgotPassButton_Click(object sender, EventArgs e)
+        {
+            tenantLoginPassLabel.Visible = false;
+            tenantLoginPassTextBox.Visible = false;
+            tenantLoginButton.Visible = false;
+            tenantPassResetGoButton.Visible = true;
+            tenantPassResetCancelButton.Visible = true;
+            tenantForgotPassButton.Visible = false;
 
-        //TO=DO
+        }
+
+        private void tenantPassResetCancelButton_Click(object sender, EventArgs e)
+        {
+            tenantForgotPassButton.Visible = true;
+            tenantLoginPassLabel.Visible = true;
+            tenantLoginPassTextBox.Visible = true;
+            tenantLoginButton.Visible = true;
+            tenantPassResetCancelButton.Visible = false;
+            tenantPassResetGoButton.Visible = false;
+            tenantPassResetOtpLabel.Visible = false;
+            tenantPassResetOtpTextBox.Visible = false;
+            tenantPassResetSubmitButton.Visible = false;
+            tenantPassresetChangeButton.Visible = false;
+            tenantLoginEmailTextBox.Enabled = true;
+            tenantPassResetNewPassLabel.Visible = false;
+            tenantLoginPassLabel.Visible = true;
+        }
+
+        private void tenantPassResetGoButton_Click(object sender, EventArgs e)
+        {
+            new CommonValidation().CheckForInternetConnection(this);
+            otp = new Random().Next(100000, 999999);
+            new MailSender().Send("hostelx.x@yandex.com", "HostelX", tenantLoginEmailTextBox.Text, "To You", "HostelX OTP", "Your'e Resetting Your HostelX Tenant Password", "<strong>Your HostelX Password Reset OTP: "+otp+"</strong>");
+            tenantPassResetOtpLabel.Visible = true;
+            tenantPassResetOtpTextBox.Visible = true;
+            tenantPassResetSubmitButton.Visible = true;
+            tenantLoginEmailTextBox.Enabled = false;
+            tenantPassResetGoButton.Visible = false;
+        }
+
+        private void tenantPassResetOtpTextBox_TextChanged(object sender, EventArgs e)
+        {
+            tenantPassResetSubmitButton.Enabled = !(tenantPassResetOtpTextBox.Text.Length < 6);
+        }
+
+        private void tenantPassResetOtpTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tenantPassresetChangeButton_Click(object sender, EventArgs e)
+        {
+            new CommonValidation().CheckForInternetConnection(this);
+            tenantForgotPassButton.Visible = true;
+            tenantLoginPassLabel.Visible = true;
+            tenantLoginPassTextBox.Visible = true;
+            tenantLoginButton.Visible = true;
+            tenantPassResetCancelButton.Visible = false;
+            tenantPassResetGoButton.Visible = false;
+            tenantPassResetOtpLabel.Visible = false;
+            tenantPassResetOtpTextBox.Visible = false;
+            tenantPassResetSubmitButton.Visible = false;
+            tenantPassresetChangeButton.Visible = false;
+            tenantLoginEmailTextBox.Enabled = true;
+            tenantPassResetNewPassLabel.Visible = false;
+            tenantLoginPassLabel.Visible = true;
+            if (new TenantDataAccess().UpdatePassword(tenantLoginEmailTextBox.Text, tenantLoginPassTextBox.Text))
+            {
+                MessageBox.Show("Password Changed Successfully!\nPlease Login With New Password.", "Success");
+            }
+            else
+            {
+                MessageBox.Show("Could not change password!\nPlease Check Your Internet Connection!", "Error");
+            }
+        }
+
+        private void tenantPassResetSubmitButton_Click(object sender, EventArgs e)
+        {
+            if (tenantPassResetOtpTextBox.Text.Equals(otp.ToString()))
+            {
+                tenantPassResetSubmitButton.Visible = false;
+                tenantPassResetOtpTextBox.Visible = false;
+                tenantPassResetOtpLabel.Visible = false;
+                tenantLoginPassTextBox.Visible = true;
+                tenantPassResetNewPassLabel.Visible = true;
+                tenantPassresetChangeButton.Visible = true;
+            }
+            else
+            {
+                MessageBox.Show("Could not change password!\nPlease Input Valid OTP!", "Error");
+            }
+        }
         //TENANT LOGIN FORGOT PASSWORD PART END
         //==============================================
     }
