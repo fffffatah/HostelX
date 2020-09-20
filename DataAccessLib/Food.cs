@@ -11,6 +11,7 @@ namespace DataAccessLib
         public string FoodId { get; set; }
         public string FoodItem { get; set; }
         public string FoodQuantity { get; set; }
+        public string FoodPrice { get; set; }
         public string AdminId { get; set; }
     }
 }

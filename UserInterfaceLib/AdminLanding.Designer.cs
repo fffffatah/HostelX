@@ -143,7 +143,17 @@
             this.paymentHostelIdLabel = new System.Windows.Forms.Label();
             this.paymentDataGridView = new System.Windows.Forms.DataGridView();
             this.noticeTabPage = new System.Windows.Forms.TabPage();
+            this.addNoticeGroupBox = new System.Windows.Forms.GroupBox();
+            this.postNoticeButton = new System.Windows.Forms.Button();
+            this.noticeTextBox = new System.Windows.Forms.TextBox();
+            this.noticeLabel = new System.Windows.Forms.Label();
+            this.noticeGroupBox = new System.Windows.Forms.GroupBox();
+            this.hostelIdNoticeComboBox = new System.Windows.Forms.ComboBox();
+            this.hostelIdNoticeLabel = new System.Windows.Forms.Label();
+            this.noticeDataGridView = new System.Windows.Forms.DataGridView();
             this.extraTabPage = new System.Windows.Forms.TabPage();
+            this.aboutGroupBox = new System.Windows.Forms.GroupBox();
+            this.oopLabel = new System.Windows.Forms.Label();
             this.hostelGridViewContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.viewEditToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -159,19 +169,13 @@
             this.paymentContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.refreshToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.noticeGroupBox = new System.Windows.Forms.GroupBox();
-            this.noticeDataGridView = new System.Windows.Forms.DataGridView();
-            this.hostelIdNoticeLabel = new System.Windows.Forms.Label();
-            this.hostelIdNoticeComboBox = new System.Windows.Forms.ComboBox();
-            this.addNoticeGroupBox = new System.Windows.Forms.GroupBox();
-            this.noticeLabel = new System.Windows.Forms.Label();
-            this.noticeTextBox = new System.Windows.Forms.TextBox();
-            this.postNoticeButton = new System.Windows.Forms.Button();
             this.noticeContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.refreshToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutGroupBox = new System.Windows.Forms.GroupBox();
-            this.oopLabel = new System.Windows.Forms.Label();
+            this.foodPriceLabel = new System.Windows.Forms.Label();
+            this.foodPriceTextBox = new System.Windows.Forms.TextBox();
+            this.editFoodPriceTextBox = new System.Windows.Forms.TextBox();
+            this.editFoodPriceLabel = new System.Windows.Forms.Label();
             this.adminTabControl.SuspendLayout();
             this.profileTabPage.SuspendLayout();
             this.adminDangerZoneGroupBox.SuspendLayout();
@@ -199,16 +203,16 @@
             this.paymentGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.paymentDataGridView)).BeginInit();
             this.noticeTabPage.SuspendLayout();
+            this.addNoticeGroupBox.SuspendLayout();
+            this.noticeGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.noticeDataGridView)).BeginInit();
             this.extraTabPage.SuspendLayout();
+            this.aboutGroupBox.SuspendLayout();
             this.hostelGridViewContextMenuStrip.SuspendLayout();
             this.tenantGridViewContextMenuStrip.SuspendLayout();
             this.foodContextMenuStrip.SuspendLayout();
             this.paymentContextMenuStrip.SuspendLayout();
-            this.noticeGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.noticeDataGridView)).BeginInit();
-            this.addNoticeGroupBox.SuspendLayout();
             this.noticeContextMenuStrip.SuspendLayout();
-            this.aboutGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // adminTabControl
@@ -1087,6 +1091,8 @@
             // 
             // editFoodGroupBox
             // 
+            this.editFoodGroupBox.Controls.Add(this.editFoodPriceTextBox);
+            this.editFoodGroupBox.Controls.Add(this.editFoodPriceLabel);
             this.editFoodGroupBox.Controls.Add(this.foodIdTextBox);
             this.editFoodGroupBox.Controls.Add(this.editFoodQtyTextBox);
             this.editFoodGroupBox.Controls.Add(this.editFoodNameTextBox);
@@ -1104,7 +1110,7 @@
             // 
             // foodIdTextBox
             // 
-            this.foodIdTextBox.Location = new System.Drawing.Point(188, 168);
+            this.foodIdTextBox.Location = new System.Drawing.Point(188, 219);
             this.foodIdTextBox.Name = "foodIdTextBox";
             this.foodIdTextBox.Size = new System.Drawing.Size(100, 22);
             this.foodIdTextBox.TabIndex = 26;
@@ -1168,6 +1174,8 @@
             // 
             // addFoodGroupBox
             // 
+            this.addFoodGroupBox.Controls.Add(this.foodPriceTextBox);
+            this.addFoodGroupBox.Controls.Add(this.foodPriceLabel);
             this.addFoodGroupBox.Controls.Add(this.foodQuantityTextBox);
             this.addFoodGroupBox.Controls.Add(this.foodNameTextBox);
             this.addFoodGroupBox.Controls.Add(this.foodQtyLabel);
@@ -1409,6 +1417,92 @@
             this.noticeTabPage.Text = "Notices";
             this.noticeTabPage.UseVisualStyleBackColor = true;
             // 
+            // addNoticeGroupBox
+            // 
+            this.addNoticeGroupBox.Controls.Add(this.postNoticeButton);
+            this.addNoticeGroupBox.Controls.Add(this.noticeTextBox);
+            this.addNoticeGroupBox.Controls.Add(this.noticeLabel);
+            this.addNoticeGroupBox.Location = new System.Drawing.Point(636, 3);
+            this.addNoticeGroupBox.Name = "addNoticeGroupBox";
+            this.addNoticeGroupBox.Size = new System.Drawing.Size(589, 770);
+            this.addNoticeGroupBox.TabIndex = 1;
+            this.addNoticeGroupBox.TabStop = false;
+            this.addNoticeGroupBox.Text = "New Notice";
+            // 
+            // postNoticeButton
+            // 
+            this.postNoticeButton.Enabled = false;
+            this.postNoticeButton.Location = new System.Drawing.Point(227, 406);
+            this.postNoticeButton.Name = "postNoticeButton";
+            this.postNoticeButton.Size = new System.Drawing.Size(138, 55);
+            this.postNoticeButton.TabIndex = 2;
+            this.postNoticeButton.Text = "Post";
+            this.postNoticeButton.UseVisualStyleBackColor = true;
+            this.postNoticeButton.Click += new System.EventHandler(this.postNoticeButton_Click);
+            // 
+            // noticeTextBox
+            // 
+            this.noticeTextBox.Location = new System.Drawing.Point(134, 98);
+            this.noticeTextBox.Multiline = true;
+            this.noticeTextBox.Name = "noticeTextBox";
+            this.noticeTextBox.Size = new System.Drawing.Size(354, 236);
+            this.noticeTextBox.TabIndex = 1;
+            this.noticeTextBox.TextChanged += new System.EventHandler(this.noticeTextBox_TextChanged);
+            // 
+            // noticeLabel
+            // 
+            this.noticeLabel.AutoSize = true;
+            this.noticeLabel.Location = new System.Drawing.Point(79, 98);
+            this.noticeLabel.Name = "noticeLabel";
+            this.noticeLabel.Size = new System.Drawing.Size(48, 17);
+            this.noticeLabel.TabIndex = 0;
+            this.noticeLabel.Text = "Notice";
+            // 
+            // noticeGroupBox
+            // 
+            this.noticeGroupBox.Controls.Add(this.hostelIdNoticeComboBox);
+            this.noticeGroupBox.Controls.Add(this.hostelIdNoticeLabel);
+            this.noticeGroupBox.Controls.Add(this.noticeDataGridView);
+            this.noticeGroupBox.Location = new System.Drawing.Point(7, 3);
+            this.noticeGroupBox.Name = "noticeGroupBox";
+            this.noticeGroupBox.Size = new System.Drawing.Size(623, 770);
+            this.noticeGroupBox.TabIndex = 0;
+            this.noticeGroupBox.TabStop = false;
+            this.noticeGroupBox.Text = "Notices";
+            // 
+            // hostelIdNoticeComboBox
+            // 
+            this.hostelIdNoticeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.hostelIdNoticeComboBox.FormattingEnabled = true;
+            this.hostelIdNoticeComboBox.Location = new System.Drawing.Point(496, 30);
+            this.hostelIdNoticeComboBox.Name = "hostelIdNoticeComboBox";
+            this.hostelIdNoticeComboBox.Size = new System.Drawing.Size(121, 24);
+            this.hostelIdNoticeComboBox.TabIndex = 2;
+            this.hostelIdNoticeComboBox.SelectedIndexChanged += new System.EventHandler(this.hostelIdNoticeComboBox_SelectedIndexChanged);
+            // 
+            // hostelIdNoticeLabel
+            // 
+            this.hostelIdNoticeLabel.AutoSize = true;
+            this.hostelIdNoticeLabel.Location = new System.Drawing.Point(419, 33);
+            this.hostelIdNoticeLabel.Name = "hostelIdNoticeLabel";
+            this.hostelIdNoticeLabel.Size = new System.Drawing.Size(71, 17);
+            this.hostelIdNoticeLabel.TabIndex = 1;
+            this.hostelIdNoticeLabel.Text = "Hostel(ID)";
+            // 
+            // noticeDataGridView
+            // 
+            this.noticeDataGridView.AllowUserToAddRows = false;
+            this.noticeDataGridView.AllowUserToDeleteRows = false;
+            this.noticeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.noticeDataGridView.Location = new System.Drawing.Point(6, 73);
+            this.noticeDataGridView.Name = "noticeDataGridView";
+            this.noticeDataGridView.ReadOnly = true;
+            this.noticeDataGridView.RowHeadersWidth = 51;
+            this.noticeDataGridView.RowTemplate.Height = 24;
+            this.noticeDataGridView.Size = new System.Drawing.Size(611, 691);
+            this.noticeDataGridView.TabIndex = 0;
+            this.noticeDataGridView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.noticeDataGridView_MouseClick);
+            // 
             // extraTabPage
             // 
             this.extraTabPage.Controls.Add(this.aboutGroupBox);
@@ -1418,6 +1512,25 @@
             this.extraTabPage.TabIndex = 6;
             this.extraTabPage.Text = "Extras";
             this.extraTabPage.UseVisualStyleBackColor = true;
+            // 
+            // aboutGroupBox
+            // 
+            this.aboutGroupBox.Controls.Add(this.oopLabel);
+            this.aboutGroupBox.Location = new System.Drawing.Point(364, 95);
+            this.aboutGroupBox.Name = "aboutGroupBox";
+            this.aboutGroupBox.Size = new System.Drawing.Size(440, 369);
+            this.aboutGroupBox.TabIndex = 0;
+            this.aboutGroupBox.TabStop = false;
+            this.aboutGroupBox.Text = "About";
+            // 
+            // oopLabel
+            // 
+            this.oopLabel.AutoSize = true;
+            this.oopLabel.Location = new System.Drawing.Point(120, 90);
+            this.oopLabel.Name = "oopLabel";
+            this.oopLabel.Size = new System.Drawing.Size(200, 17);
+            this.oopLabel.TabIndex = 0;
+            this.oopLabel.Text = "OOP2 Project Summer [19-20]";
             // 
             // hostelGridViewContextMenuStrip
             // 
@@ -1535,92 +1648,6 @@
             this.deleteToolStripMenuItem3.Text = "Delete";
             this.deleteToolStripMenuItem3.Click += new System.EventHandler(this.deleteToolStripMenuItem3_Click);
             // 
-            // noticeGroupBox
-            // 
-            this.noticeGroupBox.Controls.Add(this.hostelIdNoticeComboBox);
-            this.noticeGroupBox.Controls.Add(this.hostelIdNoticeLabel);
-            this.noticeGroupBox.Controls.Add(this.noticeDataGridView);
-            this.noticeGroupBox.Location = new System.Drawing.Point(7, 3);
-            this.noticeGroupBox.Name = "noticeGroupBox";
-            this.noticeGroupBox.Size = new System.Drawing.Size(623, 770);
-            this.noticeGroupBox.TabIndex = 0;
-            this.noticeGroupBox.TabStop = false;
-            this.noticeGroupBox.Text = "Notices";
-            // 
-            // noticeDataGridView
-            // 
-            this.noticeDataGridView.AllowUserToAddRows = false;
-            this.noticeDataGridView.AllowUserToDeleteRows = false;
-            this.noticeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.noticeDataGridView.Location = new System.Drawing.Point(6, 73);
-            this.noticeDataGridView.Name = "noticeDataGridView";
-            this.noticeDataGridView.ReadOnly = true;
-            this.noticeDataGridView.RowHeadersWidth = 51;
-            this.noticeDataGridView.RowTemplate.Height = 24;
-            this.noticeDataGridView.Size = new System.Drawing.Size(611, 691);
-            this.noticeDataGridView.TabIndex = 0;
-            this.noticeDataGridView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.noticeDataGridView_MouseClick);
-            // 
-            // hostelIdNoticeLabel
-            // 
-            this.hostelIdNoticeLabel.AutoSize = true;
-            this.hostelIdNoticeLabel.Location = new System.Drawing.Point(419, 33);
-            this.hostelIdNoticeLabel.Name = "hostelIdNoticeLabel";
-            this.hostelIdNoticeLabel.Size = new System.Drawing.Size(71, 17);
-            this.hostelIdNoticeLabel.TabIndex = 1;
-            this.hostelIdNoticeLabel.Text = "Hostel(ID)";
-            // 
-            // hostelIdNoticeComboBox
-            // 
-            this.hostelIdNoticeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.hostelIdNoticeComboBox.FormattingEnabled = true;
-            this.hostelIdNoticeComboBox.Location = new System.Drawing.Point(496, 30);
-            this.hostelIdNoticeComboBox.Name = "hostelIdNoticeComboBox";
-            this.hostelIdNoticeComboBox.Size = new System.Drawing.Size(121, 24);
-            this.hostelIdNoticeComboBox.TabIndex = 2;
-            this.hostelIdNoticeComboBox.SelectedIndexChanged += new System.EventHandler(this.hostelIdNoticeComboBox_SelectedIndexChanged);
-            // 
-            // addNoticeGroupBox
-            // 
-            this.addNoticeGroupBox.Controls.Add(this.postNoticeButton);
-            this.addNoticeGroupBox.Controls.Add(this.noticeTextBox);
-            this.addNoticeGroupBox.Controls.Add(this.noticeLabel);
-            this.addNoticeGroupBox.Location = new System.Drawing.Point(636, 3);
-            this.addNoticeGroupBox.Name = "addNoticeGroupBox";
-            this.addNoticeGroupBox.Size = new System.Drawing.Size(589, 770);
-            this.addNoticeGroupBox.TabIndex = 1;
-            this.addNoticeGroupBox.TabStop = false;
-            this.addNoticeGroupBox.Text = "New Notice";
-            // 
-            // noticeLabel
-            // 
-            this.noticeLabel.AutoSize = true;
-            this.noticeLabel.Location = new System.Drawing.Point(79, 98);
-            this.noticeLabel.Name = "noticeLabel";
-            this.noticeLabel.Size = new System.Drawing.Size(48, 17);
-            this.noticeLabel.TabIndex = 0;
-            this.noticeLabel.Text = "Notice";
-            // 
-            // noticeTextBox
-            // 
-            this.noticeTextBox.Location = new System.Drawing.Point(134, 98);
-            this.noticeTextBox.Multiline = true;
-            this.noticeTextBox.Name = "noticeTextBox";
-            this.noticeTextBox.Size = new System.Drawing.Size(354, 236);
-            this.noticeTextBox.TabIndex = 1;
-            this.noticeTextBox.TextChanged += new System.EventHandler(this.noticeTextBox_TextChanged);
-            // 
-            // postNoticeButton
-            // 
-            this.postNoticeButton.Enabled = false;
-            this.postNoticeButton.Location = new System.Drawing.Point(227, 406);
-            this.postNoticeButton.Name = "postNoticeButton";
-            this.postNoticeButton.Size = new System.Drawing.Size(138, 55);
-            this.postNoticeButton.TabIndex = 2;
-            this.postNoticeButton.Text = "Post";
-            this.postNoticeButton.UseVisualStyleBackColor = true;
-            this.postNoticeButton.Click += new System.EventHandler(this.postNoticeButton_Click);
-            // 
             // noticeContextMenuStrip
             // 
             this.noticeContextMenuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -1644,24 +1671,41 @@
             this.deleteToolStripMenuItem4.Text = "Delete";
             this.deleteToolStripMenuItem4.Click += new System.EventHandler(this.deleteToolStripMenuItem4_Click);
             // 
-            // aboutGroupBox
+            // foodPriceLabel
             // 
-            this.aboutGroupBox.Controls.Add(this.oopLabel);
-            this.aboutGroupBox.Location = new System.Drawing.Point(364, 95);
-            this.aboutGroupBox.Name = "aboutGroupBox";
-            this.aboutGroupBox.Size = new System.Drawing.Size(440, 369);
-            this.aboutGroupBox.TabIndex = 0;
-            this.aboutGroupBox.TabStop = false;
-            this.aboutGroupBox.Text = "About";
+            this.foodPriceLabel.AutoSize = true;
+            this.foodPriceLabel.Location = new System.Drawing.Point(68, 151);
+            this.foodPriceLabel.Name = "foodPriceLabel";
+            this.foodPriceLabel.Size = new System.Drawing.Size(100, 17);
+            this.foodPriceLabel.TabIndex = 22;
+            this.foodPriceLabel.Text = "Food Price(x1)";
             // 
-            // oopLabel
+            // foodPriceTextBox
             // 
-            this.oopLabel.AutoSize = true;
-            this.oopLabel.Location = new System.Drawing.Point(120, 90);
-            this.oopLabel.Name = "oopLabel";
-            this.oopLabel.Size = new System.Drawing.Size(200, 17);
-            this.oopLabel.TabIndex = 0;
-            this.oopLabel.Text = "OOP2 Project Summer [19-20]";
+            this.foodPriceTextBox.Location = new System.Drawing.Point(172, 148);
+            this.foodPriceTextBox.Name = "foodPriceTextBox";
+            this.foodPriceTextBox.Size = new System.Drawing.Size(100, 22);
+            this.foodPriceTextBox.TabIndex = 23;
+            this.foodPriceTextBox.TextChanged += new System.EventHandler(this.foodPriceTextBox_TextChanged);
+            this.foodPriceTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.foodPriceTextBox_KeyPress);
+            // 
+            // editFoodPriceTextBox
+            // 
+            this.editFoodPriceTextBox.Location = new System.Drawing.Point(188, 164);
+            this.editFoodPriceTextBox.Name = "editFoodPriceTextBox";
+            this.editFoodPriceTextBox.Size = new System.Drawing.Size(100, 22);
+            this.editFoodPriceTextBox.TabIndex = 28;
+            this.editFoodPriceTextBox.TextChanged += new System.EventHandler(this.editFoodPriceTextBox_TextChanged);
+            this.editFoodPriceTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.editFoodPriceTextBox_KeyPress);
+            // 
+            // editFoodPriceLabel
+            // 
+            this.editFoodPriceLabel.AutoSize = true;
+            this.editFoodPriceLabel.Location = new System.Drawing.Point(84, 167);
+            this.editFoodPriceLabel.Name = "editFoodPriceLabel";
+            this.editFoodPriceLabel.Size = new System.Drawing.Size(100, 17);
+            this.editFoodPriceLabel.TabIndex = 27;
+            this.editFoodPriceLabel.Text = "Food Price(x1)";
             // 
             // AdminLanding
             // 
@@ -1713,19 +1757,19 @@
             this.paymentGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.paymentDataGridView)).EndInit();
             this.noticeTabPage.ResumeLayout(false);
+            this.addNoticeGroupBox.ResumeLayout(false);
+            this.addNoticeGroupBox.PerformLayout();
+            this.noticeGroupBox.ResumeLayout(false);
+            this.noticeGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.noticeDataGridView)).EndInit();
             this.extraTabPage.ResumeLayout(false);
+            this.aboutGroupBox.ResumeLayout(false);
+            this.aboutGroupBox.PerformLayout();
             this.hostelGridViewContextMenuStrip.ResumeLayout(false);
             this.tenantGridViewContextMenuStrip.ResumeLayout(false);
             this.foodContextMenuStrip.ResumeLayout(false);
             this.paymentContextMenuStrip.ResumeLayout(false);
-            this.noticeGroupBox.ResumeLayout(false);
-            this.noticeGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.noticeDataGridView)).EndInit();
-            this.addNoticeGroupBox.ResumeLayout(false);
-            this.addNoticeGroupBox.PerformLayout();
             this.noticeContextMenuStrip.ResumeLayout(false);
-            this.aboutGroupBox.ResumeLayout(false);
-            this.aboutGroupBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1875,5 +1919,9 @@
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem4;
         private System.Windows.Forms.GroupBox aboutGroupBox;
         private System.Windows.Forms.Label oopLabel;
+        private System.Windows.Forms.TextBox editFoodPriceTextBox;
+        private System.Windows.Forms.Label editFoodPriceLabel;
+        private System.Windows.Forms.TextBox foodPriceTextBox;
+        private System.Windows.Forms.Label foodPriceLabel;
     }
 }

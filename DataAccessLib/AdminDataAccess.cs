@@ -48,6 +48,26 @@ namespace DataAccessLib
             return admin;
         }
 
+        public Admin GetAdminById(string adminId)
+        {
+            dbConnection = new DatabaseConnection();
+            dbConnection.CreateQuery("SELECT * FROM Admins WHERE AdminId="+adminId);
+            SqlDataReader reader = dbConnection.DoQuery();
+            Admin admin = new Admin();
+            while (reader.Read())
+            {
+                admin.AdminId = reader["AdminId"].ToString();
+                admin.AdminFirstName = reader["AdminFirstName"].ToString();
+                admin.AdminLastName = reader["AdminLastName"].ToString();
+                admin.AdminPhone = reader["AdminPhone"].ToString();
+                admin.AdminEmail = reader["AdminEmail"].ToString();
+                admin.AdminProfileImage = reader["AdminProfileImage"].ToString();
+            }
+            dbConnection.Dispose();
+            dbConnection = null;
+            return admin;
+        }
+
         public bool IsPhoneEmailTaken(string adminPhone, string adminEmail)
         {
             dbConnection = new DatabaseConnection();

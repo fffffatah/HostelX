@@ -531,7 +531,20 @@ namespace UserInterfaceLib
             SetAddFoodButtonStatus();
         }
 
+        private void foodPriceTextBox_TextChanged(object sender, EventArgs e)
+        {
+            SetAddFoodButtonStatus();
+        }
+
         private void foodQuantityTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void foodPriceTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
@@ -544,6 +557,7 @@ namespace UserInterfaceLib
             Food food = new Food();
             food.FoodItem = foodNameTextBox.Text;
             food.FoodQuantity = foodQuantityTextBox.Text;
+            food.FoodPrice = foodPriceTextBox.Text;
             food.AdminId = admin.AdminId;
             if (new FoodDataAccess().CreateFood(food))
             {
@@ -560,6 +574,7 @@ namespace UserInterfaceLib
         {
             editFoodNameTextBox.Enabled = true;
             editFoodQtyTextBox.Enabled = true;
+            editFoodPriceTextBox.Enabled = true;
             saveEditFoodButton.Enabled = true;
         }
 
@@ -578,6 +593,7 @@ namespace UserInterfaceLib
             food.FoodId = foodIdTextBox.Text;
             food.FoodItem = editFoodNameTextBox.Text;
             food.FoodQuantity = editFoodQtyTextBox.Text;
+            food.FoodPrice = editFoodPriceTextBox.Text;
             if (new FoodDataAccess().UpdateFood(food))
             {
                 foodDataGridView.DataSource = new FoodDataAccess().GetFoods(admin.AdminId);
@@ -596,10 +612,12 @@ namespace UserInterfaceLib
                 editFoodGroupBox.Visible = true;
                 editFoodNameTextBox.Enabled = false;
                 editFoodQtyTextBox.Enabled = false;
+                editFoodPriceTextBox.Enabled = false;
                 saveEditFoodButton.Enabled = false;
                 foodIdTextBox.Text = foodDataGridView.Rows[currentMouseOverRow].Cells[0].Value.ToString();
                 editFoodNameTextBox.Text = foodDataGridView.Rows[currentMouseOverRow].Cells[1].Value.ToString();
                 editFoodQtyTextBox.Text = foodDataGridView.Rows[currentMouseOverRow].Cells[2].Value.ToString();
+                editFoodPriceTextBox.Text = foodDataGridView.Rows[currentMouseOverRow].Cells[3].Value.ToString();
             }
         }
 
@@ -634,6 +652,18 @@ namespace UserInterfaceLib
             SetSaveEditFoodButtonStatus();
         }
 
+        private void editFoodPriceTextBox_TextChanged(object sender, EventArgs e)
+        {
+            SetSaveEditFoodButtonStatus();
+        }
+
+        private void editFoodPriceTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
         private void editFoodQtyTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
