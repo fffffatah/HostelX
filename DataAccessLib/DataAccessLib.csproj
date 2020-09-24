@@ -71,10 +71,6 @@
       <Project>{902f7428-ec84-4cdc-8b44-c2a50c237362}</Project>
       <Name>DatabaseOperationlib</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MailOtpSenderLib\MailOtpSenderLib.csproj">
-      <Project>{54648347-a77d-4f8a-877b-f053694f4164}</Project>
-      <Name>MailOtpSenderLib</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
